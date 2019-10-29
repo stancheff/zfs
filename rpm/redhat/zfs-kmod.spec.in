@@ -35,7 +35,9 @@ This package contains the ZFS kernel modules.
 
 %kernel_module_package -n %{kmod_name} -p %{_sourcedir}/kmod-preamble
 
+%if !%{defined ksrc}
 %define ksrc %{_usrsrc}/kernels/%{kverrel}
+%endif
 %define kobj %{ksrc}
 
 %package -n kmod-%{kmod_name}-devel
